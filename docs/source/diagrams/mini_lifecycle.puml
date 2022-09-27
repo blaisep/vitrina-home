@@ -1,0 +1,21 @@
+@startuml
+!include https://raw.githubusercontent.com/bschwarz/puml-themes/master/themes/sketchy-outline/puml-theme-sketchy-outline.puml
+title "Starting Vitrina"
+
+' autonumber
+
+actor Developer
+
+Developer -> Terminal : Run Vitrina --host
+Terminal -> Vitrina : pypr install...
+Vitrina -> Host : provision services
+
+activate Host
+Host --> Vitrina : Ready
+Vitrina -> Host : Test features
+Host --> Vitrina : Results
+Vitrina -> Host : HTML reports
+Vitrina -> Terminal : View reports at http...
+deactivate
+
+@enduml

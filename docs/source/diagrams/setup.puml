@@ -1,0 +1,35 @@
+@startuml
+!include https://raw.githubusercontent.com/bschwarz/puml-themes/master/themes/sketchy-outline/puml-theme-sketchy-outline.puml
+title "Vitrina installation workflow"
+actor Developer
+
+Developer -> Terminal : vitrina setup --host
+Terminal -> Vitrina : pypr vitrina install --host
+Vitrina -> Host
+
+activate Host
+Host --> Host : Provision minimal services
+Host --> Vitrina : list of services
+deactivate
+
+Vitrina --> Host : run conformance tests
+
+activate Host
+Host --> Host : collect results
+Host -> Vitrina : return raw results
+deactivate
+
+activate Vitrina
+Vitrina --> Vitrina : Render into HTML.
+Vitrina -> Terminal : Rich output results
+Vitrina -> Host : Post HTML content
+Host -> Disk : Write HTML to doc_root
+Vitrina -> Terminal : view HTML at http://...
+deactivate
+
+activate Host
+Host --> Host : record access and health
+Host -> Disk : Update static content
+deactivate
+
+@enduml

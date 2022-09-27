@@ -2,6 +2,26 @@
 Use Vitrina for your portfolio
 ==============================
 
+
+How does Vitrina work?
+======================
+
+.. image:: _images/setup.png
+    :scale: 50
+    :alt: A sequence diagram showing the steps
+    :align: center
+
+
+    - Launch a top-level script which runs the test automation and
+    - returns a list of the features and their current condition.
+    - The HTML also includes text explaining the purpose of each feature and the result of the most recent test run.
+
+The tests and their results produce the documentation that both describes and validates the implementation.
+The purpose of the web interface is to serve of a description of... itself.
+
+If you decide to add, for example, high availability; then extend the tests with steps that exercise HA and edit the description to include your enhancement.
+
+
 Quick Start
 ============
 
