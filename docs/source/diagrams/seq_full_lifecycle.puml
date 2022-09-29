@@ -4,6 +4,9 @@ title "Lifecycle At-A-Glance"
 
 actor Developer
 boundary Terminal
+'----------------------
+
+group Getting started
 Developer -> Terminal : Run Vitrina --host
 Terminal -> Vitrina : pypr install...
 Vitrina -> Host : provision services
@@ -16,6 +19,8 @@ Vitrina -> Host : provision services
     Vitrina -> Host : POST HTML reports
     deactivate
 Vitrina -> Terminal : View reports at http...
+end group
+'----------------------
 
 group Extending Vitrina
 
@@ -31,6 +36,7 @@ Developer -> Host : implement feature
     deactivate Vitrina
 
 end group
+'----------------------
 
 group  Share the Portfolio
 boundary Browser
