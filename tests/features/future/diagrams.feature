@@ -1,14 +1,13 @@
 # Created by bpabon at 6/2/21
 Feature: Diagrams derived from PlantUML syntax
-"""Diagrams are images produced from a block of text, parsed using the PlantUML syntax.
+"""Diagrams are images produced from a block of text, the reference implementation uses PlantUML syntax.
+
+  It's possible to use a different rendering tool, such as mermaid.js, as long as you consider the impact on
+  other diagrams which are likely written using PlantUML.
 """
   Scenario Outline:
-  """Consider answers to the enduring questions:
-
-	How can I tell if the feature is working?
-	What happens when the feature fails?
-	How much better is this new version of the feature?
-	How can I tell if anyone is using the feature?
+  """In this scenario, the source of the diagrams is included in the doc source for rendering at build time.
+    This scenario does not apply when diagrams are included as static images.
   """
 
   Scenario: A sequence diagram
