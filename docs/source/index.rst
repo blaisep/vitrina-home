@@ -11,7 +11,7 @@ Vitrina: a portfolio kit for devops
 TL;DR:
 ======
 
-A kit for infrastructure developers to build portfolio apps that capture/format/publish test results and operational metrics.
+A portfolio development kit for infrastructure developers to showcase their skills. The kit uses the record/format/publish of test results and operational metrics to describe an example infrastructure. A developer may extend part or all of the tests to illustrate and contrast their contribution.
 
 
 
@@ -20,8 +20,8 @@ A kit for infrastructure developers to build portfolio apps that capture/format/
 
     What is Vitrina? <describe/index>
     How to use it <howto/index>
-    Who is involved? <contributors/index>
     Other Frequent Questions <describe/index>
+    contributors/index
     reference/index
 
 

@@ -1,33 +1,40 @@
 # Created by bpabon at 5/8/21
-Feature: Reports in a web browser
+Feature: Reports use the test results to describe the characteristics of the infrastructure. Since the reports represent the state of the project when the tests were run, they should always include and identifier (eg. commit id) to the code of the tests.
+	Strict reproducibility is not a goal of the project, but we encourage pinning dependencies where appropriate.
+	A future feature describing the criteria for reproducible builds is possible.
 
+
+# use markdown for very concrete examples https://github.com/cucumber/common/blob/main/gherkin/MARKDOWN_WITH_GHERKIN.md
 
   Scenario Outline:
 
 	The feature tests will invoke the pertinent step functions and the record the results.
-	The test results get written to HTML files.
-	Given Table with examples
-		| Category | <category> |
-		Examples:
-			| Category     |  |
-			| Datalink     |  |
-			| Network      |  |
-			| Transport    |  |
-			| Session      |  |
-			| Presentation |  |
-			| Performance  |  |
+	Report header includes:
+		| report-category | test-date | hostname | commit-id |
 
-	@success
-  Scenario: HTML reports succeed
-		Given User opens  <category> HTML report
-		When the page load completes
-		Then The server records another event
 
-	@fail
-  Scenario: HTML reports fail
+		@success
+		Scenario: report succeeds
+			Given A report for "<category>"
+			When User opens  <category> HTML report  # The when should be a user action
+			Then The server records another event
+
+#					| Category | Link |
+#			Examples:
+#				| Category     | Link |
+#				| Datalink     |      |
+#				| Network      |      |
+#				| Transport    |      |
+#				| Session      |      |
+#				| Presentation |      |
+#				| Performance  |      |
+
+	@failure
+  Scenario: report fails
 		Given User opens  <category> HTML report
-		When Page fails to load
-		Then  <category> Error gets logged
+		When user tries to generate deport for Dec 27 Page fails to load
+		Then  <category> Error gets logged with (run date, list of fields, server name, git sha, etc)
+		# Are there multiple failure scenarios ?
 
 	@progress
   Scenario: Upgrade the  <category> HTML reports
@@ -37,9 +44,9 @@ Feature: Reports in a web browser
 
 	@usage
   Scenario: Track  <category> page views
-		Given User opens HTML report
-		When  Server returns a page
-		Then  Page view count increments
+		Given "<category>" report has been viewed multiple times
+		When  content manager requests page count information
+		Then  Report returns a table  # "This page has been viewed {number} times"
 
 
 	Scenario: A feature contains multiple steps
@@ -48,6 +55,7 @@ Feature: Reports in a web browser
 		Then  <category> report expands to show the individual step results
 
 	Scenario: Reports for multiple categories
-		Given Multiple categories contain results
-		When User opens the top level page
-		Then top level page lists categories with links
+		Given a list of categories
+		When I select a category
+		Then each category has a list of corresponding reports
+

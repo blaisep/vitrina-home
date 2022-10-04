@@ -52,9 +52,13 @@ The ideal solution would provide:
 
 We know that a full stack cloud infrastructure, must support a collection of services, each of which is routinely excercised during the course of most internet sessions.
 So we begin by asserting the existence of certain features via user journeys. For example, we could follow the life of a HTTP request:
+
 .. image:: ../_images/seq_getstarted.png
+    :scale: 50
+    :alt: A sequence diagram showing the steps to test infrastructure features and record the results.
+    :align: center
 
-
+This diagrams summarizes the steps:
     - A browser fetches a URL
     - A DNS client resolves an address
     - A HTTP server gets a file
