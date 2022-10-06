@@ -2,15 +2,35 @@
 Use Vitrina for your portfolio
 ==============================
 
+
+How does Vitrina work?
+======================
+
+.. image:: ../_images/seq_getstarted.png
+    :scale: 50
+    :alt: A sequence diagram showing the steps
+    :align: center
+
+Vitrina is meant to include a fully automated reference implementation so that you can:
+    - Launch a top-level script which runs the test automation and
+    - returns a list of the features and their current condition.
+    - The HTML also includes text explaining the purpose of each feature and the result of the most recent test run.
+
+The tests and their results produce the documentation that both describes and validates the implementation.
+The purpose of the web interface is to serve of a description of... itself.
+
+If you decide to add, for example, high availability; then extend the tests with steps that exercise HA and edit the description to include your enhancement.
+
+
 Quick Start
 ============
 
 If you're in a hurry and you just want to get a quick portfolio built, these steps should help you out:
 
-	- Clone this repo
-	- Edit the README and the content in the docs/folder to suit your project
-	- ``make html``
-	- push your html to wherever you host your documentation.
+    - Clone this repo
+    - Edit the README and the content in the docs/folder to suit your project
+    - ``make html``
+    - push your html to wherever you host your documentation.
 
 .. note:: These steps will build the doc. Stand by for more details
 

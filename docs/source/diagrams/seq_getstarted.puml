@@ -1,0 +1,39 @@
+@startuml
+' !include https://raw.githubusercontent.com/bschwarz/puml-themes/master/themes/sketchy-outline/puml-theme-sketchy-outline.puml
+title "Getting Started"
+
+actor Developer
+boundary Terminal
+'----------------------
+group Prepare the infrastructure
+Developer -> Terminal : Run Vitrina --host
+Terminal -> Vitrina : pypr install...
+Vitrina -> Host : provision services...
+    activate Host
+    Host -> Host : create files
+    Host -> Host : start processes
+    Host --> Vitrina : Ready
+    deactivate
+end group
+
+group Test the features
+    Vitrina -> Host : TCP/IP
+    activate Vitrina
+        Host --> Vitrina : Node, Nets, Gateway, ASN
+    Vitrina -> Host : TLS
+        Host --> Vitrina : Ciphers, CAs ...
+    Vitrina -> Host : DNS
+        Host --> Vitrina : resolver, DHCP ...
+    Vitrina -> Host : HTTP
+        Host --> Vitrina : Server " ", v2, QUIC...
+    Vitrina -> Host : Speeds & Feeds
+        Host --> Vitrina : Bandwidth, Latency, CPU, RAM ...
+    Vitrina -> Host : Golden Signals
+        Host --> Vitrina : U R Golden
+    Vitrina -> Host : POST HTML reports
+    deactivate Vitrina
+Vitrina -> Terminal : "Please review reports at http..."
+end group
+
+'----------------------
+@enduml
