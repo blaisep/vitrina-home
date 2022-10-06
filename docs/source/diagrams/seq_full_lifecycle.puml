@@ -1,0 +1,51 @@
+@startuml
+' !include https://raw.githubusercontent.com/bschwarz/puml-themes/master/themes/sketchy-outline/puml-theme-sketchy-outline.puml
+title "Lifecycle At-A-Glance"
+
+actor Developer
+boundary Terminal
+'----------------------
+
+group Getting started
+Developer -> Terminal : Run Vitrina --host
+Terminal -> Vitrina : pypr install...
+Vitrina -> Host : provision services
+    activate Host
+    Host -> Host : create files
+    Host -> Host : start processes
+    Host --> Vitrina : Ready
+    Vitrina -> Host : Run test steps
+    Host -> Vitrina : Results
+    Vitrina -> Host : POST HTML reports
+    deactivate
+Vitrina -> Terminal : View reports at http...
+end group
+'----------------------
+
+group Extending Vitrina
+
+Developer -> Vitrina : describe feature
+Developer  ->  Vitrina : define test step
+Developer -> Host : implement feature
+
+    activate Vitrina
+    Vitrina -> Host : run steps
+    Host --> Vitrina : results
+    Vitrina -> Host : POST HTML reports
+    Vitrina -> Terminal : view reports at http...
+    deactivate Vitrina
+
+end group
+'----------------------
+
+group  Share the Portfolio
+boundary Browser
+actor Reviewer
+    Reviewer -> Browser : Open reports
+    activate Browser
+    Browser -> Host : Get HTML reports
+    Host -> Browser : HTML reports
+    Browser -> Reviewer : lovely HTML + Javascript
+    deactivate
+end group
+@enduml

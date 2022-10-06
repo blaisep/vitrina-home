@@ -3,7 +3,6 @@ About Vitrina
 =============
 
 
-
 The problem space
 =================
 
@@ -53,8 +52,13 @@ The ideal solution would provide:
 
 We know that a full stack cloud infrastructure, must support a collection of services, each of which is routinely excercised during the course of most internet sessions.
 So we begin by asserting the existence of certain features via user journeys. For example, we could follow the life of a HTTP request:
-.. insert a sequence diagram here next.
 
+.. image:: ../_images/seq_getstarted.png
+    :scale: 50
+    :alt: A sequence diagram showing the steps to test infrastructure features and record the results.
+    :align: center
+
+This diagrams summarizes the steps:
     - A browser fetches a URL
     - A DNS client resolves an address
     - A HTTP server gets a file
@@ -86,12 +90,6 @@ similar to what gothinkster did with `their realword app. <https://codebase.show
 
 
 
-How does Vitrina work?
-======================
-
-Launch a top-level script which runs the test automation and returns a list of the features and their current condition.
-The HTML also includes text explaining the purpose of each feature and the result of the most recent test run.
-If you decide to add, for example, high availability; then extend the tests with steps that exercise HA and edit the description to include your enhancement.
 
 
 Vitrina as a portfolio template
@@ -151,7 +149,7 @@ For example, when there are some pages which a user must log in to see.
     """
     Feature: User authentication for some pages
       Scenario: A page requires Authentication
-        Given The server receives a request for a protected pagee
+        Given The server receives a request for a protected page
         When The request does not have authZ
         Then The server denies access to the page.
 
@@ -197,8 +195,9 @@ Why are these four questions difficult for cloud developers?
 
 When cloud development makes heavy use of virtualization, abstraction and packaging of dependencies; the behavior of an artifact (your project) may change because of the assumptions you made about where it was running.
 These assumptions lead to the "works-on-my-machine" anti-pattern. There is often a discrepancy between the "system as intended"
-and the "system as it is" .
+and the "system as it is".
 If you can address the four questions when you build your artifact, you will increase the likelihood that production users (anyone other than you) will be successful.
+
 
 Architectural Decision Records
 ==============================
