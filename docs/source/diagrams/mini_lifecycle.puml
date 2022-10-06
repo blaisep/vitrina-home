@@ -1,6 +1,7 @@
 @startuml
-!include https://raw.githubusercontent.com/bschwarz/puml-themes/master/themes/sketchy-outline/puml-theme-sketchy-outline.puml
-title "Starting Vitrina"
+' Roll your own theme: https://bschwarz.github.io/puml-themes/rolling.html
+!include https://raw.githubusercontent.com/bschwarz/puml-themes/master/themes/materia-outline/puml-theme-materia-outline.puml
+title "Vitrina at-a-glance"
 
 ' autonumber
 
@@ -18,4 +19,13 @@ Vitrina -> Host : HTML reports
 Vitrina -> Terminal : View reports at http...
 deactivate
 
+group  Share the Portfolio
+boundary Browser
+actor Reviewer
+    Reviewer -> Browser : Open reports
+    activate Browser
+    Browser -> Host : Get HTML reports
+    Host -> Browser : HTML reports
+    Browser -> Reviewer : lovely HTML + Javascript
+    deactivate
 @enduml
