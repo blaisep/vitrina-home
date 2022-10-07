@@ -3,7 +3,7 @@ About Vitrina
 =============
 
 
-.. image:: ../_images/mini_lifecycle.svg
+.. image:: ../_images/mini_lifecycle.png
     :scale: 45
     :alt: A sequence diagram listing the high level transitions of installation, inspection, publishing
     :align: center

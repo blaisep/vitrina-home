@@ -1,6 +1,6 @@
 @startuml
 ' Roll your own theme: https://bschwarz.github.io/puml-themes/rolling.html
-!include https://raw.githubusercontent.com/bschwarz/puml-themes/master/themes/materia-outline/puml-theme-materia-outline.puml
+!include https://raw.githubusercontent.com/bschwarz/puml-themes/master/themes/bluegray/puml-theme-bluegray.puml
 title "Vitrina at-a-glance"
 
 ' autonumber

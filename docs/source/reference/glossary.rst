@@ -61,6 +61,9 @@ Terms & concepts
     Unit tests
         Explores the question "Does this change work as expected"
 
+    Vitrina
+        Spanish word for showcase or shop window. It is also the name of a useful set of tests and reports for helping infrastructure developers to show their work.
+
 .. Substitutions
 
 .. |about_APM| replace:: https://docs.datadoghq.com/tracing/visualization/#pagetitle
