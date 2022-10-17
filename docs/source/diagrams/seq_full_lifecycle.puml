@@ -6,19 +6,33 @@ actor Developer
 boundary Terminal
 '----------------------
 
-group Getting started
-Developer -> Terminal : Run Vitrina --host
-Terminal -> Vitrina : pypr install...
-Vitrina -> Host : provision services
+group Using defaults
+Developer -> Terminal : Run Vitrina -settings
+Terminal -> Vitrina : start tests..
+Vitrina -> Host : begin inspections
     activate Host
-    Host -> Host : create files
-    Host -> Host : start processes
-    Host --> Vitrina : Ready
-    Vitrina -> Host : Run test steps
-    Host -> Vitrina : Results
-    Vitrina -> Host : POST HTML reports
+    Host -> Host : query infrastructure
+    Host -> Host : write results
+    Host --> Vitrina : Results of Tests
+
+    activate Vitrina
+    Vitrina -> Host : Formatted report
+    deactivate Host
+
+    Vitrina -> Terminal : Link to reports
+    deactivate Vitrina
+end group
+'----------------------
+
+group  Share the Portfolio
+boundary Browser
+actor Reviewer
+    Reviewer -> Browser : Open reports
+    activate Browser
+    Browser -> Host : Get HTML reports
+    Host -> Browser : HTML reports
+    Browser -> Reviewer : lovely HTML + Javascript
     deactivate
-Vitrina -> Terminal : View reports at http...
 end group
 '----------------------
 
@@ -36,16 +50,5 @@ Developer -> Host : implement feature
     deactivate Vitrina
 
 end group
-'----------------------
 
-group  Share the Portfolio
-boundary Browser
-actor Reviewer
-    Reviewer -> Browser : Open reports
-    activate Browser
-    Browser -> Host : Get HTML reports
-    Host -> Browser : HTML reports
-    Browser -> Reviewer : lovely HTML + Javascript
-    deactivate
-end group
 @enduml

@@ -2,6 +2,10 @@
 About Vitrina
 =============
 
+.. image:: ../_images/mini_lifecycle.png
+    :scale: 45
+    :alt: A sequence diagram listing the high level transitions of installation, inspection, publishing
+    :align: center
 
 The problem space
 =================
@@ -9,7 +13,7 @@ The problem space
 
 Sometimes it is hard to show off your work. If you're a recent graduate or a seasoned Enterprise developer, you may not have samples
 of your work accessible via the public internet. This is particularly true if your work does not lend itself to snazzy user interfaces.
-In Spanish, the word **vitrina** means "showcase"; specifically the kind you see in department store windows. A great deal of work goes on behind the scenes to make products look appealing and much of the glamour depends on a combination of crafts, such as lighting, perspective, narration, etc.
+In Spanish, the :term:`vitrina` means "showcase"; specifically the kind you see in department store windows. A great deal of work goes on behind the scenes to make products look appealing and much of the glamour depends on a combination of crafts, such as lighting, perspective, narration, etc.
 
 If you manage to set up a site with some examples of your work, you may have to wrap it with work that you may not know as well, and you may not be very good at.
 In that case, you risk giving the wrong impression when folks are distracted by some ancient CSS, or a TLS certificate that just doesn't behave properly.
@@ -213,3 +217,31 @@ For now, we would like to be able to associate aspects of a feature with the dec
     - new product managers don't duplicate prior efforts.
     - so that developers can understand dependencies more quickly
     - decisions	 can be aggregated and reasoned about as category with its own properties
+
+
+Structure of Record Architecture Decisions
+-------------------------------------------
+
+Status
+------
+
+Accepted
+
+Context
+-------
+
+We would like to keep a historical record on the architectural
+decisions we make with this app as it evolves over time.
+
+Decision
+--------
+
+We will use Architecture Decision Records, as described by
+    * Michael Nygard in `Documenting Architecture Decisions`_
+    * https://resources.sei.cmu.edu/asset_files/Presentation/2017_017_001_497746.pdf
+    * https://github.com/npryce/adr-tools/tree/master/doc/adr
+
+
+.. Links and Substitutions...
+
+.. _Documenting Architecture Decisions: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions

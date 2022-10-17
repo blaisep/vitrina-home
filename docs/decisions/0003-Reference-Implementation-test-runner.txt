@@ -1,0 +1,43 @@
+===================================================
+Which test runner for the reference implementation
+===================================================
+
+Status
+======
+
+Opened
+
+Context
+=======
+
+The reference implementation should provide the rudimentary characteristics of a typical web app infrastructure, so that a dev can have a working example they can modify.
+
+
+Decision
+========
+
+If our goal is to be as portable as possible, there are a few ways we could go:
+    1- Issue assertions using the common posix tools (ifconfig, nslookup, curl)
+    2- provide a monolithic python script that would test each feature.
+    3- Use a test runner like pytest and include a list of fixtures and modules.
+
+
+Python tools
+============
+
+pyinfra
+    `A python package`_ for provisioning infrastructure using classes called "operations."
+
+testinfra
+    `A python library`_ for testing infrastructure https://github.com/Fizzadar/pyinfra/blob/2.x/tests/end-to-end/test_e2e_local.py
+
+ansible-facts
+    The Ansible core module will collect facts about a host and return those as fields. Only works on a single host at a time.
+
+
+
+.. links & Substitutions
+
+
+.. _https://docs.pyinfra.com/en/2.x/using-operations.html
+.. _https://testinfra.readthedocs.io/en/latest/
