@@ -1,6 +1,6 @@
 @startuml
 ' !include https://raw.githubusercontent.com/bschwarz/puml-themes/master/themes/sketchy-outline/puml-theme-sketchy-outline.puml
-title "Lifecycle At-A-Glance"
+title "Lifecycle of a showcase"
 
 actor Developer
 boundary Terminal
@@ -24,14 +24,15 @@ Vitrina -> Host : begin inspections
 end group
 '----------------------
 
-group  Share the Portfolio
+group  Share the Default Portfolio
 boundary Browser
 actor Reviewer
-    Reviewer -> Browser : Open reports
+    Developer --> Reviewer : "Check out my new demo site"
+    Reviewer -> Browser : Open  the index to reports
     activate Browser
     Browser -> Host : Get HTML reports
-    Host -> Browser : HTML reports
-    Browser -> Reviewer : lovely HTML + Javascript
+    Host -> Browser :  lovely HTML + Javascript
+    Browser -> Reviewer : Text, charts and tables
     deactivate
 end group
 '----------------------

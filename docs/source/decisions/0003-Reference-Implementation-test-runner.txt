@@ -5,7 +5,7 @@ Which test runner for the reference implementation
 Status
 ======
 
-Opened
+Discussing
 
 Context
 =======
@@ -13,13 +13,20 @@ Context
 The reference implementation should provide the rudimentary characteristics of a typical web app infrastructure, so that a dev can have a working example they can modify.
 
 
+Primary guiding principles
+==========================
+
+- Provide a working minimumum viable reference
+- Clear, public interfaces to facilitate modification.
+-
+
 Decision
 ========
 
 If our goal is to be as portable as possible, there are a few ways we could go:
     1- Issue assertions using the common posix tools (ifconfig, nslookup, curl)
-    2- provide a monolithic python script that would test each feature.
-    3- Use a test runner like pytest and include a list of fixtures and modules.
+    2- provide a all-in-one python script that would mock and test each feature.
+    3- Use a test runner like pytest  or Robot Framework and include a list of fixtures and modules.
 
 
 Python tools
@@ -34,6 +41,18 @@ testinfra
 ansible-facts
     The Ansible core module will collect facts about a host and return those as fields. Only works on a single host at a time.
 
+All-in-One
+==========
+
+    - Localstack: `a mock AWS infrastructure <https://github.com/localstack/localstack>`_ a cloud service emulator that runs in a single container
+
+
+Test runner
+============
+
+    - Pytest
+
+    - Robot Framework
 
 
 .. links & Substitutions
